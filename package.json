@@ -1,0 +1,24 @@
+{
+  "name": "lil-paws-server",
+  "version": "1.0.0",
+  "description": "Backend NodeJS server for Lil' Paws",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pragathiy08/Lil-Paws-Server.git"
+  },
+  "author": "Pragathi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pragathiy08/Lil-Paws-Server/issues"
+  },
+  "homepage": "https://github.com/pragathiy08/Lil-Paws-Server#readme",
+  "dependencies": {
+    "express": "4.17.1",
+    "body-parser": "1.19.0",
+    "mongoose": "5.9.18"
+  }
+}
