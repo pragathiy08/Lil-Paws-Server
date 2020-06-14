@@ -5,6 +5,7 @@
         "esModuleInterop": true,
         "noImplicitAny": true,
         "allowSyntheticDefaultImports": true,
+        "removeComments": true,
         "moduleResolution": "node",
         "sourceMap": true,
         "outDir": "dist",
