@@ -8,6 +8,7 @@ import { Role, RoleGraph } from "./Role";
  */
 export interface Account extends Document {
     _id: string;
+    name: string;
     email: string;
     password?: string;
     role: Role;
@@ -20,6 +21,7 @@ export interface Account extends Document {
  */
 export const AccountSchema = new Schema<Account>({
     _id: { type: String, required: true },
+    name: { type: String, required: true },
     email: { type: String, required: true },
     password: { type: String },
     role: { type: Number, default: 1 },
@@ -41,6 +43,7 @@ export const AccountGraph = new GraphQLObjectType({
     description: "GraphQL Object for Accounts",
     fields: {
         _id: { type: new GraphQLNonNull(GraphQLString) },
+        name: { type: new GraphQLNonNull(GraphQLString) },
         email: { type: new GraphQLNonNull(GraphQLString) },
         password: { type: GraphQLString },
         role: { type: new GraphQLNonNull(RoleGraph) },

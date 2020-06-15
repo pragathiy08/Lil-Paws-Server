@@ -3,7 +3,7 @@ import graphqlHTTP from 'express-graphql';
 import { AccountGraph } from "../models/Account";
 import { GraphQLSchema, GraphQLObjectType, GraphQLNonNull, GraphQLString } from "graphql";
 import { RoleGraph } from "../models/Role";
-import { create, login, fetch } from "../resolvers/AccountHelpers";
+import { create, login, fetch } from "../resolvers/AccountResolvers";
 
 const router = Router()
 
@@ -20,7 +20,7 @@ const schema = new GraphQLSchema({
                 resolve: login
             },
             fetch: {
-                type: GraphQLString,
+                type: AccountGraph,
                 args: {
                     username: { type: GraphQLString }
                 },
@@ -36,6 +36,7 @@ const schema = new GraphQLSchema({
                 description: "Creates Account",
                 args: {
                     _id: { type: new GraphQLNonNull(GraphQLString) },
+                    name: { type: new GraphQLNonNull(GraphQLString) },
                     email: { type: new GraphQLNonNull(GraphQLString) },
                     password: { type: new GraphQLNonNull(GraphQLString) },
                     role: { type: new GraphQLNonNull(RoleGraph) }

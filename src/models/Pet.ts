@@ -9,7 +9,7 @@ export interface Pet extends Document {
     variant: string;
     breed: string;
     name: string;
-    age: number;
+    birth: Date;
     owner: string;
     date: Date;
 }
@@ -22,7 +22,7 @@ export const PetSchema = new Schema<Pet>({
     variant: { type: String, required: true },
     breed: { type: String, required: true },
     name: { type: String, required: true },
-    age: { type: Number, required: true },
+    birth: { type: Date, required: true },
     owner: { type: String, required: true },
     date: { type: Date, default: Date.now }
 });
@@ -41,10 +41,11 @@ export const PetGraph = new GraphQLObjectType({
     name: "Pet",
     description: "GraphQL Object for Pet",
     fields: {
+        _id: { type: new GraphQLNonNull(GraphQLString) },
         variant: { type: new GraphQLNonNull(GraphQLString) },
         breed: { type: new GraphQLNonNull(GraphQLString) },
         name: { type: new GraphQLNonNull(GraphQLString) },
-        age: { type: new GraphQLNonNull(GraphQLInt) },
+        birth: { type: new GraphQLNonNull(GraphQLString) },
         owner: { type: new GraphQLNonNull(GraphQLString) },
         date: { type: new GraphQLNonNull(GraphQLString) }
     }
